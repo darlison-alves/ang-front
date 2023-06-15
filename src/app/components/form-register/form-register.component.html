@@ -1,0 +1,20 @@
+<section class="form">
+    <h2 class="section-heading">Register</h2>
+    <ng-template [ngIf]="isSuccess">
+        <div class="alert-success"> salvo com sucesso! </div>
+    </ng-template>
+    <ng-template [ngIf]="error">
+        <div class="alert-danger"> Ocorreu um error! </div>
+    </ng-template>
+    <form [formGroup]="applyForm" (submit)="submitApplication()">
+        <label for="name">Nome</label>
+        <input class="input-form" id="name" type="text" formControlName="name">
+
+        <label for="id-email">Email</label>
+        <input class="input-form" id="id-email" type="text" formControlName="email">
+
+        <label for="id-phone">Telefone</label>
+        <input class="input-form" id="id-phone" type="text" formControlName="phone">
+        <button [disabled]="isLoading" type="submit" class="btn-submit">{{isLoading ? 'Enviado...': text_btn }}</button>
+    </form>
+</section>
